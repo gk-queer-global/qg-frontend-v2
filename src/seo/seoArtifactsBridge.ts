@@ -1,4 +1,4 @@
-import seoArtifacts from "./seoArtifacts.cjs";
+import seoArtifacts from "./seoArtifacts.js";
 
 export const buildCanonicalUrl = seoArtifacts.buildCanonicalUrl;
 export const buildRobotsTxt = seoArtifacts.buildRobotsTxt;

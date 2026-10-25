@@ -6,7 +6,7 @@ const {
 	buildRobotsTxt,
 	buildSitemapXml,
 	resolveSiteOrigin,
-} = require("../src/seo/seoArtifacts.cjs");
+} = require("../src/seo/seoArtifacts.js");
 
 const repoRoot = path.join(__dirname, "..");
 const publicDir = path.join(repoRoot, "public");
