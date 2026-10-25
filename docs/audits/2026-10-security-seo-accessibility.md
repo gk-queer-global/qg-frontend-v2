@@ -11,8 +11,8 @@
 | Environment | Local production build served with `serve` 14.x on `http://127.0.0.1:4173` (no live or staging hostname accessed) |
 | Report status | Draft for independent review |
 | Parent program | Site-wide audit under the Linear work item titled *Audit site security, SEO and accessibility; prioritize gaps and document the release process* |
-| Pull request | _Updated after draft PR is opened_ |
-| CI for this report | _Updated after CI run completes_ |
+| Pull request | https://github.com/gk-queer-global/qg-frontend-v2/pull/9 (draft) |
+| CI for this report | https://github.com/gk-queer-global/qg-frontend-v2/actions/runs/40219750624 (pass). Earlier run https://github.com/gk-queer-global/qg-frontend-v2/actions/runs/40219540219 failed until jest-axe TypeScript declarations were added. |
 
 This report mirrors the structure used for the Activism hub slice (`docs/audits/2026-10-security-seo-accessibility.md` in `activism-grandkru-hub`). That source file was not readable from this environment (private repository); section headings and gap-register fields follow the same program requirements recorded on the parent audit ticket.
 
