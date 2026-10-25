@@ -16,7 +16,7 @@ const Footer: FC = () => {
 	const currentYear: number = new Date().getFullYear();
 
 	return (
-		<FooterContainer className="QG-background">
+		<FooterContainer as="footer" className="QG-background">
 			<FooterBar></FooterBar>
 			<LogoContainer>
 				<img src={icon} alt="logo" />

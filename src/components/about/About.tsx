@@ -7,7 +7,7 @@ const About: FC = () => {
 		<>
 			<AboutMain>
 				<WhiteBGSection>
-					<h2>ABOUT US.</h2>
+					<h1>ABOUT US.</h1>
 					<p>We support and prioritize the people who are least represented in an outside of the rainbow umbrella. We want to give the community a safe, inviting space to confidently be themselves, easily find accurate, trusted information, share common experiences, and have the ability to support other LGBTQIA+ people and businesses in their area.</p>
 			
 					<h2>WE ARE <PurpleSpan>united</PurpleSpan>.</h2>
