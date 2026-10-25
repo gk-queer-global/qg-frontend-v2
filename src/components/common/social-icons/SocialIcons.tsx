@@ -16,27 +16,27 @@ const SocialIcons: FC = () => {
 			<IconsWrapper>
 				<IconContainer className="svg">
 				<a href="https://www.facebook.com/QueerGlobal/" target="_blank" rel="noreferrer noopener">
-						<img src={facebook} alt="facebook" />
+						<img src={facebook} alt="QueerGlobal on Facebook" />
 					</a>
 				</IconContainer>
 				<IconContainer>
 					<a href="https://twitter.com/queerglobal_" target="_blank" rel="noreferrer noopener">
-						<img src={twitter} alt="twitter" />
+						<img src={twitter} alt="QueerGlobal on X (Twitter)" />
 					</a>
 				</IconContainer>
 				<IconContainer>
 					<a href="https://www.instagram.com/queerglobal/" target="_blank" rel="noreferrer noopener">
-						<img src={instagram} alt="instagram" />
+						<img src={instagram} alt="QueerGlobal on Instagram" />
 					</a>
 				</IconContainer>
 				<IconContainer>
 					<a href="https://www.linkedin.com/company/queer-global/" target="_blank" rel="noreferrer noopener">
-						<img src={linkedIn} alt="linkedIn" />
+						<img src={linkedIn} alt="QueerGlobal on LinkedIn" />
 					</a>
 				</IconContainer>
 				<IconContainer>
 					<a href="https://www.pinterest.com/QueerGlobal/_created/" target="_blank" rel="noreferrer noopener">
-						<img src={pinterest} alt="pinterest" />
+						<img src={pinterest} alt="QueerGlobal on Pinterest" />
 					</a>
 				</IconContainer>
 			</IconsWrapper>
