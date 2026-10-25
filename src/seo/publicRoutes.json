@@ -1,0 +1,55 @@
+{
+  "defaultSiteOrigin": "https://www.queerglobal.com",
+  "routes": [
+    {
+      "path": "/",
+      "title": "Queer Global | LGBTQIA+ community resources",
+      "description": "Queer Global is a worldwide hub for LGBTQIA+ people to find trusted resources, share experiences, and support queer communities and businesses.",
+      "includeInSitemap": true
+    },
+    {
+      "path": "/about",
+      "title": "About Queer Global",
+      "description": "Learn how Queer Global supports marginalized LGBTQIA+ communities with a safe space for accurate information, shared advice, and global connection.",
+      "includeInSitemap": true
+    },
+    {
+      "path": "/donate",
+      "title": "Donate to Queer Global",
+      "description": "Support Queer Global's mission to connect LGBTQIA+ people with resources, visibility, and community beyond mainstream social platforms.",
+      "includeInSitemap": true
+    },
+    {
+      "path": "/blog",
+      "title": "Queer Global Blog",
+      "description": "Stories, updates, and community news from Queer Global.",
+      "includeInSitemap": true
+    },
+    {
+      "path": "/add-resource",
+      "title": "Add a resource | Queer Global",
+      "description": "Submit LGBTQIA+ resources and listings to help Queer Global grow as a trusted community directory.",
+      "includeInSitemap": true
+    },
+    {
+      "path": "/search",
+      "title": "Search resources | Queer Global",
+      "description": "Search Queer Global for LGBTQIA+ resources, services, and community listings.",
+      "includeInSitemap": true
+    },
+    {
+      "path": "/profile",
+      "title": "Your profile | Queer Global",
+      "description": "Manage your Queer Global profile.",
+      "includeInSitemap": false,
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/logout",
+      "title": "Sign out | Queer Global",
+      "description": "Sign out of your Queer Global session.",
+      "includeInSitemap": false,
+      "robots": "noindex, nofollow"
+    }
+  ]
+}

@@ -35,6 +35,12 @@ jobs:
       - run: npm run test:ci
       - name: SPA fallback present in build
         run: grep -q 'index.html' build/_redirects
+      - name: SEO static files present in build
+        run: |
+          test -f build/sitemap.xml
+          test -f build/robots.txt
+          grep -q 'Sitemap:' build/robots.txt
+          grep -q '<urlset' build/sitemap.xml
       - if: matrix.node-version == '22.x'
         uses: actions/upload-artifact@v4
         with:
