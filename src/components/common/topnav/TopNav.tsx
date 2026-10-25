@@ -22,7 +22,7 @@ const TopNav: FC = () => {
 		return () => window.removeEventListener("resize", updateWidth);
 	}, []);
 
-	return <TopNavContainer as="header">
+	return <TopNavContainer forwardedAs="header">
 		{isWindowWidthMobile ? 
 			<Navbar /> : 
 			<> 
