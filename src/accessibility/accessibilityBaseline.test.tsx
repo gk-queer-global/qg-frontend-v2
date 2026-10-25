@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import App from '../App';
 
-const violationIds = (results: Awaited<ReturnType<typeof axe>>): string[] =>
+const violationIds = (results: { violations: { id: string }[] }): string[] =>
   results.violations.map((violation) => violation.id).sort();
 
 describe('accessibility baseline (jest-axe in jsdom)', () => {
