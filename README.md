@@ -51,6 +51,16 @@ Here's a rough list of Adobe XD views of the main routes:
 
 ---
 
+## Environment variables
+
+| Variable | Required | Description |
+| --- | --- | --- |
+| `REACT_APP_SENTRY_DSN` | No | When set, enables Sentry error reporting in the browser bundle. When unset, Sentry stays disabled and makes no network requests. Do not commit a DSN or other secrets to the repository. |
+
+If your deployment uses a Content-Security-Policy, allow Sentry ingest endpoints in `connect-src` when this variable is set (for example `https://*.ingest.sentry.io`).
+
+---
+
 ## Available Scripts
 
 In the project directory, you can run `npm start`

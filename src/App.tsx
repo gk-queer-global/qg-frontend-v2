@@ -1,4 +1,7 @@
+import { initSentry } from "./logging";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
+initSentry();
 import Home from "./components/home/Home";
 import About from "./components/about/About";
 import Donate from "./components/donate/Donate";
