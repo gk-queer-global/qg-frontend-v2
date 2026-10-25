@@ -88,14 +88,10 @@ export async function fetchNavbarUser(
 				typeof record.messages === "number" ? record.messages : undefined,
 		};
 		return { kind: "success", data };
-	} catch (error) {
-		logStructured("error", "navbar_user_fetch_failed", {
+	} catch {
+		logStructured("info", "navbar_user_signed_out", {
 			feature: "navbar_user_fetch",
-			reason: "invalid_json",
-		});
-		captureUnexpectedError(error, {
-			feature: "navbar_user_fetch",
-			reason: "invalid_json",
+			httpStatus: response.status,
 		});
 		return { kind: "signed_out" };
 	}

@@ -77,7 +77,7 @@ describe("Navbar Component", () => {
 				DEFAULT_PROFILE_THUMB,
 			);
 		});
-		expect(mockedCaptureUnexpectedError).toHaveBeenCalled();
+		expect(mockedCaptureUnexpectedError).not.toHaveBeenCalled();
 	});
 
 	it("shows signed-out profile state when /user network fails", async () => {

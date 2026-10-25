@@ -79,7 +79,7 @@ describe("fetchNavbarUser", () => {
 		expect(mockedCaptureUnexpectedError).toHaveBeenCalled();
 	});
 
-	it("treats non-JSON success bodies as signed out and reports to Sentry", async () => {
+	it("treats non-JSON success bodies as signed out with info logging only", async () => {
 		const fetchFn = jest.fn().mockResolvedValue({
 			ok: true,
 			status: 200,
@@ -92,11 +92,11 @@ describe("fetchNavbarUser", () => {
 
 		expect(result).toEqual({ kind: "signed_out" });
 		expect(mockedLogStructured).toHaveBeenCalledWith(
-			"error",
-			"navbar_user_fetch_failed",
-			expect.objectContaining({ reason: "invalid_json" }),
+			"info",
+			"navbar_user_signed_out",
+			expect.objectContaining({ httpStatus: 200 }),
 		);
-		expect(mockedCaptureUnexpectedError).toHaveBeenCalled();
+		expect(mockedCaptureUnexpectedError).not.toHaveBeenCalled();
 	});
 
 	it("treats network failures as signed out and reports to Sentry", async () => {
