@@ -34,13 +34,13 @@ export const TopNavLogo = styled.span`
 	flex-grow: 1;
 `;
 
-export const SignUpBtn = styled.button`
+export const DonateNavLink = styled(NavLink)`
 	background-color: ${colors.UNICORN};
 	color: ${colors.WHITE};
 	border-style: none;
 `;
 
-export const DonateBtn = styled.button`
+export const SignUpNavLink = styled(NavLink)`
 	background-color: ${colors.WHITE};
 	color: ${colors.BLACK};
 	border-style: none;
