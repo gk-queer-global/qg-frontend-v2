@@ -28,8 +28,11 @@
     "lint": "eslint src/components/** src/App.t*",
     "lint:fix": "eslint src/components/** src/App.t* --fix",
     "lint:quiet": "eslint src/components/** src/App.t* --quiet",
+    "prestart": "tsx src/routing/runGenerateCloudflarePagesRouting.ts prebuild",
     "start": "react-scripts start",
+    "prebuild": "tsx src/routing/runGenerateCloudflarePagesRouting.ts prebuild",
     "build": "react-scripts build",
+    "postbuild": "tsx src/routing/runGenerateCloudflarePagesRouting.ts postbuild",
     "test": "react-scripts test",
     "test:ci": "CI=true react-scripts test",
     "eject": "react-scripts eject",
@@ -76,7 +79,8 @@
     "@typescript-eslint/eslint-plugin": "^5.59.6",
     "@typescript-eslint/parser": "^5.59.6",
     "eslint": "^8.57.1",
-    "eslint-plugin-react": "^7.32.2"
+    "eslint-plugin-react": "^7.32.2",
+    "tsx": "^4.23.15"
   },
   "engines": {
     "node": ">=20"

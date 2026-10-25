@@ -33,8 +33,12 @@ jobs:
         env:
           CI: "true"
       - run: npm run test:ci
-      - name: SPA fallback present in build
-        run: grep -q 'index.html' build/_redirects
+      - name: Cloudflare Pages routing artifacts present
+        run: |
+          test -f build/_redirects
+          test -f build/404.html
+          grep -q '/about / 200' build/_redirects
+          ! grep -qE '^/\* / 200' build/_redirects || (echo "Remove catch-all SPA 200 redirect" && exit 1)
       - if: matrix.node-version == '22.x'
         uses: actions/upload-artifact@v4
         with:
