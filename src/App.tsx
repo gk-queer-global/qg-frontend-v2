@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import PageSeo from "./seo/PageSeo";
 import Home from "./components/home/Home";
 import About from "./components/about/About";
 import Donate from "./components/donate/Donate";
@@ -19,6 +20,7 @@ const App: React.FC = () => {
 			<TopNav />
 
 			<Router>
+				<PageSeo />
 				<Route path="/" exact component={Home} />
 				<Route path="/about" exact component={About} />
 				<Route path="/donate" component={Donate} />

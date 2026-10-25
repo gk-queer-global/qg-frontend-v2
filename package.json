@@ -25,10 +25,11 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "lint": "eslint src/components/** src/App.t*",
-    "lint:fix": "eslint src/components/** src/App.t* --fix",
-    "lint:quiet": "eslint src/components/** src/App.t* --quiet",
+    "lint": "eslint src/components/** src/seo/** src/App.t*",
+    "lint:fix": "eslint src/components/** src/seo/** src/App.t* --fix",
+    "lint:quiet": "eslint src/components/** src/seo/** src/App.t* --quiet",
     "start": "react-scripts start",
+    "prebuild": "node scripts/generate-seo-static.cjs",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:ci": "CI=true react-scripts test",
