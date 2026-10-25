@@ -42,14 +42,10 @@ const About: FC = () => {
 					<div>INSERT THUMBNAILS</div>
 
 					<small>We're all different, but still all the same. Our family is always growing.</small>
-					<AboutNavLink href="/get-involved">
-						SEE VOLUNTEER OPPORTUNITIES
-					</AboutNavLink>
+					<button type="button">SEE VOLUNTEER OPPORTUNITIES</button>
 					
 					<small>We want YOU to feel represented and worthy as you are. The people you see on our site are real Queer Global members. Want to join them?</small>
-					<AboutNavLink href="/contact-us">
-						SEND US YOUR PHOTO OR ARTWORK
-					</AboutNavLink>
+					<button type="button">SEND US YOUR PHOTO OR ARTWORK</button>
 			
 					<h2>WE ARE HERE FOR <PurpleSpan>you</PurpleSpan>.</h2>
 					<p>We do our best to provide up-to-date, accurate resources and information, but we could always use a helping hand. If you know of any helpful resources, please help us and the rest of our community out and add them.</p>
