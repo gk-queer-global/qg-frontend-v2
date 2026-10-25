@@ -12,7 +12,10 @@ export function redirectRulesForRoute(route: AppRoutePath): string[] {
 	const spaShell = "/";
 
 	if (route.exact) {
-		return [`${route.path} ${spaShell} 200`];
+		return [
+			`${route.path} ${spaShell} 200`,
+			`${route.path}/ ${spaShell} 200`,
+		];
 	}
 
 	return [
