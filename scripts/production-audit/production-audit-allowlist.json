@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "GHSA-25h7-pfq9-p65f",
+      "package": "flatted",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-27r3-jxmh-p828",
+      "package": "body-parser",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-2883-xcg3-v3hh",
+      "package": "js-yaml",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-2p49-hgcm-8545",
+      "package": "svgo",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-37ch-88jc-xwx2",
+      "package": "path-to-regexp",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-3jxr-9vmj-r5cp",
+      "package": "brace-expansion",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-3xgq-45jj-v275",
+      "package": "cross-spawn",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-52cp-r559-cp3m",
+      "package": "js-yaml",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-5c6j-r48x-rmvq",
+      "package": "serialize-javascript",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-5p4m-2wfm-xmqj",
+      "package": "js-yaml",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-6g55-p6wh-862q",
+      "package": "postcss",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-6j4f-fj2g-mc7p",
+      "package": "brace-expansion",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-86w9-cpqp-85rv",
+      "package": "node-forge",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-95m3-7q98-8xr5",
+      "package": "sha.js",
+      "severity": "critical",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-9wv6-86v2-598j",
+      "package": "path-to-regexp",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-c2qf-rxjj-qqgw",
+      "package": "semver",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-cpq7-6gpm-g9rc",
+      "package": "cipher-base",
+      "severity": "critical",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-fjxv-7rqg-78g4",
+      "package": "form-data",
+      "severity": "critical",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-g84c-rxfj-3j2c",
+      "package": "webpack-dev-middleware",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-grv7-fg5c-xmjg",
+      "package": "braces",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-h7cp-r72f-jxh6",
+      "package": "pbkdf2",
+      "severity": "critical",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-hmw2-7cc7-3qxx",
+      "package": "form-data",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-jqcg-44mw-7w3h",
+      "package": "proxy-addr",
+      "severity": "critical",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-mh99-v99m-4gvg",
+      "package": "brace-expansion",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-qhr7-859c-m2p7",
+      "package": "brace-expansion",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-qpx9-hpmf-5gmw",
+      "package": "underscore",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-qwcr-r2fm-qrc7",
+      "package": "body-parser",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-r28c-9q8g-f849",
+      "package": "postcss",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-r5fr-rjxr-66jc",
+      "package": "lodash",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-rf6f-7fwh-wjgh",
+      "package": "flatted",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-rgw5-rvv9-x895",
+      "package": "brace-expansion",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-rhx6-c78j-4q9w",
+      "package": "path-to-regexp",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-rp65-9cf3-cjxr",
+      "package": "nth-check",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-v62p-rq8g-8h59",
+      "package": "pbkdf2",
+      "severity": "critical",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-vc2v-76pw-4v95",
+      "package": "compression",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-vjh7-7g9h-fjfh",
+      "package": "elliptic",
+      "severity": "critical",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-w27v-7q3p-w38r",
+      "package": "svgo",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-x9w5-v3q2-3rhw",
+      "package": "browserify-sign",
+      "severity": "high",
+      "note": "Tracked by the dependency fix series (G1)."
+    },
+    {
+      "id": "GHSA-xv26-6w52-cph6",
+      "package": "websocket-driver",
+      "severity": "critical",
+      "note": "Tracked by the dependency fix series (G1)."
+    }
+  ]
+}

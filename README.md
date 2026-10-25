@@ -59,7 +59,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Run `npm test` for info on [running tests](https://facebook.github.io/create-react-app/docs/running-tests)
 
-Run `npm run build` for info on [deployment](https://facebook.github.io/create-react-app/docs/deployment). 
+Run `npm run build` for info on [deployment](https://facebook.github.io/create-react-app/docs/deployment).
+
+### Production dependency audit
+
+CI blocks merges when a new high or critical advisory appears in production dependencies. Known advisories are allowlisted in `scripts/production-audit/production-audit-allowlist.json`. See [docs/production-dependency-audit.md](docs/production-dependency-audit.md) for how the check works and how to update the list.
+
+Locally: `npm run audit:production` and `npm run test:production-audit`.
 
 ---
 
