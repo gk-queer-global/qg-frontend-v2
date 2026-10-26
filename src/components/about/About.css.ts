@@ -16,7 +16,7 @@ export const DarkGreyBGSection = styled.div`
   color: white;
 `;
 
-export const AboutMain = styled.main`
+export const AboutMain = styled.div`
   display: flex; 
   flex-direction: column; 
   margin: 10%;
