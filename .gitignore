@@ -29,6 +29,9 @@ package-lock.json
 
 /notes
 
+# Compiled production-audit check (built in CI)
+/scripts/production-audit/dist
+
 # IDE Directories
 .idea
 .vscode

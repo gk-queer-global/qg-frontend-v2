@@ -25,7 +25,9 @@
     "test:ci": "CI=true react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "audit:production": "npx tsc -p scripts/production-audit/tsconfig.json && node scripts/production-audit/dist/check-production-audit.js",
+    "test:production-audit": "npx tsc -p scripts/production-audit/tsconfig.json && node --test scripts/production-audit/dist/check-production-audit.test.js"
   },
   "eslintConfig": {
     "extends": [
