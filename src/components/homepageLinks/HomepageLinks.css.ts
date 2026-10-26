@@ -12,7 +12,7 @@ export const LinksWrapperProps = styled.div`
   }
 `;
 
-export const Header2 = styled.h1`
+export const Header2 = styled.h2`
   color: ${colors.BLACK};
   font-weight: bold;
   font-size: 24px;
