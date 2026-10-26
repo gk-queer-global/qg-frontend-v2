@@ -8,7 +8,7 @@ export const HomepageContents2Wrapper = styled.div`
   margin: 62px auto 0;
 `;
 
-export const Header3 = styled.h1`
+export const Header3 = styled.h2`
   color: ${colors.BLACK};
   font-size: 24px;
   font-weight: bold;
@@ -31,7 +31,7 @@ export const SubHeader = styled.h2`
   margin: 48px 0 -5px -40px;
 `;
 
-export const Span = styled.h2`
+export const Span = styled.span`
   color: ${colors.UNICORN};
   font-size: 48px;
   font-weight: 800;
