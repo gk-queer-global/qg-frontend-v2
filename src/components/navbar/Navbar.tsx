@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { NavDropdown } from "react-bootstrap";
@@ -14,6 +14,7 @@ import {
 	ProfileThumbCont
 } from "./Navbar.css";
 import colors from "../../styles/colors";
+import { useNavbarUser } from "./useNavbarUser";
 import {
 	MOBILE_NAV_LABEL_ID,
 	MOBILE_NAV_PANEL_NAME,
@@ -21,34 +22,27 @@ import {
 	MOBILE_NAV_TRIGGER_LABEL,
 } from "./navIds";
 
+const DEFAULT_PROFILE_THUMB =
+	"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn4.iconfinder.com%2Fdata%2Ficons%2Flove-wins%2F500%2FRainbow_Military-512.png&f=1&nofb=1";
+
 const NavBar: FC = () => {
-	const [profileThumbnail, setProfileThumbnail] = useState("");
-	const [messages, setMessages] = useState(3);
+	const { profileThumbnail, messages } = useNavbarUser();
 
 	const MessagesIcon = () => {
-		if (messages > 0) return <MessagesContainer>{messages}</MessagesContainer>;
+		if (messages !== undefined && messages > 0) {
+			return <MessagesContainer>{messages}</MessagesContainer>;
+		}
+		return null;
 	};
 
 	const ProfilePic = () => {
-		return <ProfileThumbCont src={profileThumbnail ? profileThumbnail : "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn4.iconfinder.com%2Fdata%2Ficons%2Flove-wins%2F500%2FRainbow_Military-512.png&f=1&nofb=1"} alt="Profile Thumbnail" />
-	}
-
-	useEffect(() => {
-		const url = "/user";
-		fetch(url, {
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json;charset=utf-8'
-			},
-		}).then((response) => {
-			if (response.ok) {
-				return response.json()
-			}
-		}).then(({ profileThumbnail, messages }) => {
-			setProfileThumbnail(profileThumbnail);
-			setMessages(messages);
-		});
-	}, []);
+		return (
+			<ProfileThumbCont
+				src={profileThumbnail ? profileThumbnail : DEFAULT_PROFILE_THUMB}
+				alt="Profile Thumbnail"
+			/>
+		);
+	};
 
 	return (
 		<>
