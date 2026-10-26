@@ -34,7 +34,7 @@ describe('accessibility baseline (jest-axe in jsdom)', () => {
     expect(violationIds(results)).toEqual([]);
   });
 
-  it('records mobile navigation violation rule ids on the home route', async () => {
+  it('does not report mobile navigation axe violations on the home route', async () => {
     Object.defineProperty(window, 'innerWidth', {
       configurable: true,
       writable: true,
@@ -45,6 +45,6 @@ describe('accessibility baseline (jest-axe in jsdom)', () => {
     const { container } = render(<App />);
     const results = await axe(container);
 
-    expect(violationIds(results)).toEqual(['aria-valid-attr-value', 'button-name']);
+    expect(violationIds(results)).toEqual([]);
   });
 });
