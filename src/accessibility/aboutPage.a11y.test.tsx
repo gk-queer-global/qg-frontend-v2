@@ -25,22 +25,22 @@ describe('About page action accessibility', () => {
   });
 
   it('keeps volunteer and photo actions as named buttons until those routes exist', () => {
-    render(<About />);
-    const main = screen.getByRole('main');
+    const { container } = render(<About />);
+    const aboutContent = within(container);
 
     expect(
-      within(main).getByRole('button', { name: /SEE VOLUNTEER OPPORTUNITIES/i })
+      aboutContent.getByRole('button', { name: /SEE VOLUNTEER OPPORTUNITIES/i })
     ).toHaveAttribute('type', 'button');
     expect(
-      within(main).getByRole('button', {
+      aboutContent.getByRole('button', {
         name: /SEND US YOUR PHOTO OR ARTWORK/i,
       })
     ).toHaveAttribute('type', 'button');
     expect(
-      within(main).queryByRole('link', { name: /SEE VOLUNTEER OPPORTUNITIES/i })
+      aboutContent.queryByRole('link', { name: /SEE VOLUNTEER OPPORTUNITIES/i })
     ).not.toBeInTheDocument();
     expect(
-      within(main).queryByRole('link', {
+      aboutContent.queryByRole('link', {
         name: /SEND US YOUR PHOTO OR ARTWORK/i,
       })
     ).not.toBeInTheDocument();
