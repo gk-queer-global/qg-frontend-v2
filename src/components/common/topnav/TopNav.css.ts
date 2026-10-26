@@ -58,12 +58,12 @@ export const DonateNavLink = styled(NavLink)`
 
 export const SignUpNavLink = styled(NavLink)`
 	background-color: ${colors.WHITE};
-	color: ${colors.BLACK};
+	color: ${colors.BLACK} !important;
 	border-style: none;
 	margin-left: 24px;
 
 	&:focus,
 	&:active {
-		color: ${colors.BLACK};
+		color: ${colors.BLACK} !important;
 	}
 `;

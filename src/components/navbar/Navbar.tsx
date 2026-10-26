@@ -14,6 +14,12 @@ import {
 	ProfileThumbCont
 } from "./Navbar.css";
 import colors from "../../styles/colors";
+import {
+	MOBILE_NAV_LABEL_ID,
+	MOBILE_NAV_PANEL_NAME,
+	MOBILE_NAV_SIDEBAR_ID,
+	MOBILE_NAV_TRIGGER_LABEL,
+} from "./navIds";
 
 const NavBar: FC = () => {
 	const [profileThumbnail, setProfileThumbnail] = useState("");
@@ -49,8 +55,9 @@ const NavBar: FC = () => {
 			<MenuButton
 				type="button"
 				data-bs-toggle="offcanvas"
-				data-bs-target="#sidebar"
-				aria-controls="offcanvasScrolling"
+				data-bs-target={`#${MOBILE_NAV_SIDEBAR_ID}`}
+				aria-controls={MOBILE_NAV_SIDEBAR_ID}
+				aria-label={MOBILE_NAV_TRIGGER_LABEL}
 			>
 				<FontAwesomeIcon icon={faBars} style={{ color: `${colors.BLACK}` }} />
 			</MenuButton>
@@ -59,9 +66,12 @@ const NavBar: FC = () => {
 				className="offcanvas offcanvas-start"
 				data-bs-scroll="true"
 				data-bs-backdrop="true"
-				id="sidebar"
-				aria-labelledby="offcanvasScrollingLabel"
+				id={MOBILE_NAV_SIDEBAR_ID}
+				aria-labelledby={MOBILE_NAV_LABEL_ID}
 			>
+				<h2 id={MOBILE_NAV_LABEL_ID} className="visually-hidden">
+					{MOBILE_NAV_PANEL_NAME}
+				</h2>
 				<div className="offcanvas-body p-0 overflow-hidden">
 					<NavLink href="/"> 
 						HOME
