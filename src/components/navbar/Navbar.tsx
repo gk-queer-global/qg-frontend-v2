@@ -15,6 +15,12 @@ import {
 } from "./Navbar.css";
 import colors from "../../styles/colors";
 import { useNavbarUser } from "./useNavbarUser";
+import {
+	MOBILE_NAV_LABEL_ID,
+	MOBILE_NAV_PANEL_NAME,
+	MOBILE_NAV_SIDEBAR_ID,
+	MOBILE_NAV_TRIGGER_LABEL,
+} from "./navIds";
 
 const DEFAULT_PROFILE_THUMB =
 	"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn4.iconfinder.com%2Fdata%2Ficons%2Flove-wins%2F500%2FRainbow_Military-512.png&f=1&nofb=1";
@@ -43,8 +49,9 @@ const NavBar: FC = () => {
 			<MenuButton
 				type="button"
 				data-bs-toggle="offcanvas"
-				data-bs-target="#sidebar"
-				aria-controls="offcanvasScrolling"
+				data-bs-target={`#${MOBILE_NAV_SIDEBAR_ID}`}
+				aria-controls={MOBILE_NAV_SIDEBAR_ID}
+				aria-label={MOBILE_NAV_TRIGGER_LABEL}
 			>
 				<FontAwesomeIcon icon={faBars} style={{ color: `${colors.BLACK}` }} />
 			</MenuButton>
@@ -53,9 +60,12 @@ const NavBar: FC = () => {
 				className="offcanvas offcanvas-start"
 				data-bs-scroll="true"
 				data-bs-backdrop="true"
-				id="sidebar"
-				aria-labelledby="offcanvasScrollingLabel"
+				id={MOBILE_NAV_SIDEBAR_ID}
+				aria-labelledby={MOBILE_NAV_LABEL_ID}
 			>
+				<h2 id={MOBILE_NAV_LABEL_ID} className="visually-hidden">
+					{MOBILE_NAV_PANEL_NAME}
+				</h2>
 				<div className="offcanvas-body p-0 overflow-hidden">
 					<NavLink href="/"> 
 						HOME
