@@ -6,6 +6,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.15",
+    "@sentry/react": "^8.55.2",
     "bootstrap": "^5.3.8",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.4",
@@ -16,9 +17,9 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "lint": "eslint src/components/** src/App.t*",
-    "lint:fix": "eslint src/components/** src/App.t* --fix",
-    "lint:quiet": "eslint src/components/** src/App.t* --quiet",
+    "lint": "eslint src/components/** src/App.t* src/logging/**",
+    "lint:fix": "eslint src/components/** src/App.t* src/logging/** --fix",
+    "lint:quiet": "eslint src/components/** src/App.t* src/logging/** --quiet",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -79,6 +80,7 @@
     "axe-core": "^4.14.0",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.32.2",
+    "@types/jest-axe": "^3.5.9",
     "jest-axe": "^11.0.0",
     "playwright": "^1.64.1",
     "react-scripts": "^5.0.1",

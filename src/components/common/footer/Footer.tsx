@@ -19,7 +19,7 @@ const Footer: FC = () => {
 		<FooterContainer forwardedAs="footer" className="QG-background">
 			<FooterBar></FooterBar>
 			<LogoContainer>
-				<img src={icon} alt="logo" />
+				<img src={icon} alt="QueerGlobal" />
 			</LogoContainer>
 			<KnowUs> Get to know us</KnowUs>
 			<SocialIcons />
