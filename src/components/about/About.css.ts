@@ -25,3 +25,17 @@ export const AboutMain = styled.div`
 export const PurpleSpan = styled.span`
   color: #655DC6;
 `;
+
+/** Matches native button appearance so link navigation does not change layout. */
+export const AboutNavLink = styled.a`
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 1px 6px;
+  font: inherit;
+  text-align: center;
+  text-decoration: none;
+  cursor: default;
+  color: buttontext;
+  background-color: buttonface;
+  border: 1px solid buttonborder;
+`;
