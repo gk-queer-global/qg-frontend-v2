@@ -7,7 +7,10 @@ const HiGreeting: FC = () => {
         <HiGreetingContainer>
             <Greeting>Hi</Greeting>
             <TopImageContainer>
-                <img src={topImg} alt="" />
+                <img
+                    src={topImg}
+                    alt="Queer Global community member smiling beside the site greeting"
+                />
             </TopImageContainer>
         </HiGreetingContainer>
     );

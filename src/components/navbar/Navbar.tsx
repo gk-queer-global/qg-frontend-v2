@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { NavDropdown } from "react-bootstrap";
@@ -14,43 +14,44 @@ import {
 	ProfileThumbCont
 } from "./Navbar.css";
 import colors from "../../styles/colors";
+import { useNavbarUser } from "./useNavbarUser";
+import {
+	MOBILE_NAV_LABEL_ID,
+	MOBILE_NAV_PANEL_NAME,
+	MOBILE_NAV_SIDEBAR_ID,
+	MOBILE_NAV_TRIGGER_LABEL,
+} from "./navIds";
+
+const DEFAULT_PROFILE_THUMB =
+	"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn4.iconfinder.com%2Fdata%2Ficons%2Flove-wins%2F500%2FRainbow_Military-512.png&f=1&nofb=1";
 
 const NavBar: FC = () => {
-	const [profileThumbnail, setProfileThumbnail] = useState("");
-	const [messages, setMessages] = useState(3);
+	const { profileThumbnail, messages } = useNavbarUser();
 
 	const MessagesIcon = () => {
-		if (messages > 0) return <MessagesContainer>{messages}</MessagesContainer>;
+		if (messages !== undefined && messages > 0) {
+			return <MessagesContainer>{messages}</MessagesContainer>;
+		}
+		return null;
 	};
 
 	const ProfilePic = () => {
-		return <ProfileThumbCont src={profileThumbnail ? profileThumbnail : "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn4.iconfinder.com%2Fdata%2Ficons%2Flove-wins%2F500%2FRainbow_Military-512.png&f=1&nofb=1"} alt="Profile Thumbnail" />
-	}
-
-	useEffect(() => {
-		const url = "/user";
-		fetch(url, {
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json;charset=utf-8'
-			},
-		}).then((response) => {
-			if (response.ok) {
-				return response.json()
-			}
-		}).then(({ profileThumbnail, messages }) => {
-			setProfileThumbnail(profileThumbnail);
-			setMessages(messages);
-		});
-	}, []);
+		return (
+			<ProfileThumbCont
+				src={profileThumbnail ? profileThumbnail : DEFAULT_PROFILE_THUMB}
+				alt="Profile Thumbnail"
+			/>
+		);
+	};
 
 	return (
 		<>
 			<MenuButton
 				type="button"
 				data-bs-toggle="offcanvas"
-				data-bs-target="#sidebar"
-				aria-controls="offcanvasScrolling"
+				data-bs-target={`#${MOBILE_NAV_SIDEBAR_ID}`}
+				aria-controls={MOBILE_NAV_SIDEBAR_ID}
+				aria-label={MOBILE_NAV_TRIGGER_LABEL}
 			>
 				<FontAwesomeIcon icon={faBars} style={{ color: `${colors.BLACK}` }} />
 			</MenuButton>
@@ -59,9 +60,12 @@ const NavBar: FC = () => {
 				className="offcanvas offcanvas-start"
 				data-bs-scroll="true"
 				data-bs-backdrop="true"
-				id="sidebar"
-				aria-labelledby="offcanvasScrollingLabel"
+				id={MOBILE_NAV_SIDEBAR_ID}
+				aria-labelledby={MOBILE_NAV_LABEL_ID}
 			>
+				<h2 id={MOBILE_NAV_LABEL_ID} className="visually-hidden">
+					{MOBILE_NAV_PANEL_NAME}
+				</h2>
 				<div className="offcanvas-body p-0 overflow-hidden">
 					<NavLink href="/"> 
 						HOME

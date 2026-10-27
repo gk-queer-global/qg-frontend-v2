@@ -22,7 +22,10 @@ const HomepageContents2: FC = () => {
   return (
     <HomepageContents2Wrapper>
       <ImageWrapper1>
-        <Image src={middleImage} alt="" />
+        <Image
+          src={middleImage}
+          alt="Diverse Queer Global members representing inclusive community faces"
+        />
       </ImageWrapper1>
       <Header3>Your face is lovely, <br />
               can we use it?

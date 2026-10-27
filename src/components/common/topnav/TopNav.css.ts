@@ -15,13 +15,23 @@ export const TopNavContainer = styled(Nav)`
 	padding: 2% 10%;
 `;
 
+const navLinkTouchTarget = `
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 44px;
+	min-width: 44px;
+	padding: 8px 12px;
+	margin-left: 16px;
+	box-sizing: border-box;
+`;
+
 export const NavLink = styled(Nav.Link)`
 	color: ${colors.WHITE};
 	font-size: 18px;
 	text-align: center;
 	opacity: 1;
-	display: inline;
-	margin-left: 10px;
+	${navLinkTouchTarget}
 
 	&:focus,
 	&:active {
@@ -34,14 +44,26 @@ export const TopNavLogo = styled.span`
 	flex-grow: 1;
 `;
 
-export const SignUpBtn = styled.button`
+export const DonateNavLink = styled(NavLink)`
 	background-color: ${colors.UNICORN};
 	color: ${colors.WHITE};
 	border-style: none;
+	margin-left: 24px;
+
+	&:focus,
+	&:active {
+		color: ${colors.WHITE};
+	}
 `;
 
-export const DonateBtn = styled.button`
+export const SignUpNavLink = styled(NavLink)`
 	background-color: ${colors.WHITE};
-	color: ${colors.BLACK};
+	color: ${colors.BLACK} !important;
 	border-style: none;
+	margin-left: 24px;
+
+	&:focus,
+	&:active {
+		color: ${colors.BLACK} !important;
+	}
 `;

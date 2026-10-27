@@ -6,8 +6,14 @@ import imgRight from '../../assets/home/GettyImages-1284545860.jpg';
 const BottomImages: FC = () => {
     return (
         <BottomImagesContainer>
-            <img src={imgLeft} alt="" />
-            <img src={imgRight} alt="" />
+            <img
+                src={imgLeft}
+                alt="Two LGBTQIA+ people laughing together outdoors"
+            />
+            <img
+                src={imgRight}
+                alt="Group of LGBTQIA+ people celebrating at a pride event"
+            />
         </BottomImagesContainer>
     );
 };

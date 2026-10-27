@@ -1,13 +1,19 @@
 /* eslint-disable */
 import React, { FC } from "react";
-import { AboutMain, WhiteBGSection, PurpleSpan, DarkGreyBGSection } from './About.css';
+import {
+	AboutMain,
+	WhiteBGSection,
+	PurpleSpan,
+	DarkGreyBGSection,
+	AboutNavLink,
+} from './About.css';
 
 const About: FC = () => {
 	return (
 		<>
 			<AboutMain>
 				<WhiteBGSection>
-					<h2>ABOUT US.</h2>
+					<h1>ABOUT US.</h1>
 					<p>We support and prioritize the people who are least represented in an outside of the rainbow umbrella. We want to give the community a safe, inviting space to confidently be themselves, easily find accurate, trusted information, share common experiences, and have the ability to support other LGBTQIA+ people and businesses in their area.</p>
 			
 					<h2>WE ARE <PurpleSpan>united</PurpleSpan>.</h2>
@@ -36,14 +42,14 @@ const About: FC = () => {
 					<div>INSERT THUMBNAILS</div>
 
 					<small>We're all different, but still all the same. Our family is always growing.</small>
-					<button>SEE VOLUNTEER OPPORTUNITIES</button>
+					<button type="button">SEE VOLUNTEER OPPORTUNITIES</button>
 					
 					<small>We want YOU to feel represented and worthy as you are. The people you see on our site are real Queer Global members. Want to join them?</small>
-					<button>SEND US YOUR PHOTO OR ARTWORK</button>
+					<button type="button">SEND US YOUR PHOTO OR ARTWORK</button>
 			
 					<h2>WE ARE HERE FOR <PurpleSpan>you</PurpleSpan>.</h2>
 					<p>We do our best to provide up-to-date, accurate resources and information, but we could always use a helping hand. If you know of any helpful resources, please help us and the rest of our community out and add them.</p>
-					<button>ADD A RESOURCE</button>
+					<AboutNavLink href="/add-resource">ADD A RESOURCE</AboutNavLink>
 				</DarkGreyBGSection>
 			</AboutMain>
 		</>
