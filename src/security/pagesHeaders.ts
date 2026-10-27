@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
+import { SENTRY_BROWSER_INGEST_CONNECT_SRC } from '../logging/sentryConnectSrc';
+
 export const PAGES_HEADERS_RELATIVE_PATH = path.join('public', '_headers');
 
 export const REQUIRED_SECURITY_HEADER_NAMES = [
@@ -177,6 +179,13 @@ export function assertCspCoversDocumentedOrigins(csp: string): void {
   const frameAncestors = directives.get('frame-ancestors') ?? [];
   if (!frameAncestors.includes("'none'")) {
     throw new Error("CSP frame-ancestors must include 'none'");
+  }
+
+  const connectSrc = directives.get('connect-src') ?? [];
+  if (!connectSrc.includes(SENTRY_BROWSER_INGEST_CONNECT_SRC)) {
+    throw new Error(
+      `CSP connect-src must include ${SENTRY_BROWSER_INGEST_CONNECT_SRC} for optional Sentry reporting (REACT_APP_SENTRY_DSN ingest host pattern)`,
+    );
   }
 }
 
