@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { SENTRY_BROWSER_INGEST_CONNECT_SRC } from '../logging/sentryConnectSrc';
+import { SENTRY_BROWSER_INGEST_CONNECT_SRC_PATTERNS } from '../logging/sentryConnectSrc';
 
 export const PAGES_HEADERS_RELATIVE_PATH = path.join('public', '_headers');
 
@@ -182,10 +182,12 @@ export function assertCspCoversDocumentedOrigins(csp: string): void {
   }
 
   const connectSrc = directives.get('connect-src') ?? [];
-  if (!connectSrc.includes(SENTRY_BROWSER_INGEST_CONNECT_SRC)) {
-    throw new Error(
-      `CSP connect-src must include ${SENTRY_BROWSER_INGEST_CONNECT_SRC} for optional Sentry reporting (REACT_APP_SENTRY_DSN ingest host pattern)`,
-    );
+  for (const pattern of SENTRY_BROWSER_INGEST_CONNECT_SRC_PATTERNS) {
+    if (!connectSrc.includes(pattern)) {
+      throw new Error(
+        `CSP connect-src must include ${pattern} for optional Sentry reporting (REACT_APP_SENTRY_DSN ingest host pattern)`,
+      );
+    }
   }
 }
 

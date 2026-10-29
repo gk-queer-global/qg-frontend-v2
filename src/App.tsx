@@ -12,9 +12,6 @@ import TopNav from "./components/common/topnav/TopNav";
 import Footer from './components/common/footer/Footer';
 import SkipLink from './components/common/skip-link/SkipLink';
 import { PageMain } from './components/common/page-main/PageMain.css';
-import { initSentry } from "./logging";
-
-initSentry();
 
 export const AppRoutes: React.FC = () => (
   <PageMain id="main-content" tabIndex={-1}>

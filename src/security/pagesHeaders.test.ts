@@ -1,5 +1,8 @@
 import path from 'path';
-import { SENTRY_BROWSER_INGEST_CONNECT_SRC } from '../logging/sentryConnectSrc';
+import {
+  SENTRY_BROWSER_INGEST_CONNECT_SRC_PATTERNS,
+  sentryIngestConnectSrcFromDsn,
+} from '../logging/sentryConnectSrc';
 import {
   getGlobalHeadersRule,
   parseCloudflarePagesHeadersFile,
@@ -30,8 +33,14 @@ describe('Cloudflare Pages security headers', () => {
     );
     expect(csp).toBeDefined();
     const directives = parseContentSecurityPolicy(csp ?? '');
-    expect(directives.get('connect-src')).toContain(
-      SENTRY_BROWSER_INGEST_CONNECT_SRC,
+    const connectSrc = directives.get('connect-src') ?? [];
+    for (const pattern of SENTRY_BROWSER_INGEST_CONNECT_SRC_PATTERNS) {
+      expect(connectSrc).toContain(pattern);
+    }
+    expect(connectSrc).toContain(
+      sentryIngestConnectSrcFromDsn(
+        'https://publickey@o123456.ingest.us.sentry.io/789',
+      ),
     );
   });
 

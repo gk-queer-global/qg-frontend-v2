@@ -24,6 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:ci": "CI=true react-scripts test --watchAll=false --testPathIgnorePatterns=publicRoutesAxe && CI=true react-scripts test --watchAll=false --testTimeout=120000 --runInBand --testPathPattern=publicRoutesAxe",
+    "test:gate": "node --test tests/middleware.test.mjs tests/verify-staging-gate.test.mjs",
     "test:a11y": "CI=true react-scripts test --testPathPattern=accessibility --runInBand",
     "postinstall": "playwright install chromium",
     "eject": "react-scripts eject",
