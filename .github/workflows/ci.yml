@@ -83,11 +83,11 @@ jobs:
             echo "::error::QUEERGLOBAL_BASIC_AUTH_USER / QUEERGLOBAL_BASIC_AUTH_PASS secrets are not set on this repo"
             exit 1
           fi
+      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
           name: build
           path: build
-      - uses: actions/checkout@v4
       - name: Stage build output and Pages Functions middleware
         run: bash scripts/stage-pages-deploy.sh build "$RUNNER_TEMP/site"
       - name: Require Pages project (do not create)
