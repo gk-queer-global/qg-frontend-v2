@@ -37,6 +37,8 @@ jobs:
         run: npm run test:gate
       - name: SPA fallback present in build
         run: grep -q 'index.html' build/_redirects
+      - name: Security headers present in build
+        run: test -f build/_headers && grep -q 'Content-Security-Policy' build/_headers
       - if: matrix.node-version == '22.x'
         uses: actions/upload-artifact@v4
         with:
@@ -99,6 +101,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "3.114.17"
           command: pages deploy ${{ runner.temp }}/site --project-name qg-frontend-v2 --branch main
       - name: Smoke test deployment URL
         env:

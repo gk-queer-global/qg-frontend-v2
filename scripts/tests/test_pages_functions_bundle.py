@@ -7,8 +7,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..", "..")
 FUNCTIONS_DIR = os.path.join(ROOT, "functions")
 
-# cloudflare/wrangler-action@v3 installs this release when Wrangler is not in package.json.
-WRANGLER_DEPLOY_VERSION = "3.90.0"
+# Must match wranglerVersion in .github/workflows/ci.yml and package.json devDependency.
+WRANGLER_DEPLOY_VERSION = "3.114.17"
 
 
 class PagesFunctionsBundleTest(unittest.TestCase):

@@ -21,7 +21,7 @@ PROJECT=$1
 
 put_secret() {
   local name=$1 value=$2
-  printf '%s' "$value" | npx --yes wrangler@3 pages secret put "$name" --project-name "$PROJECT"
+  printf '%s' "$value" | npx --yes wrangler@3.114.17 pages secret put "$name" --project-name "$PROJECT"
 }
 
 put_secret BASIC_AUTH_USER "$QUEERGLOBAL_BASIC_AUTH_USER"
