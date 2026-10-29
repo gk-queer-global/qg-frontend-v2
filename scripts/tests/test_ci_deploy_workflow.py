@@ -6,6 +6,30 @@ import unittest
 HERE = os.path.dirname(os.path.abspath(__file__))
 CI_WORKFLOW = os.path.join(HERE, "..", "..", ".github", "workflows", "ci.yml")
 
+# Covered by the zone wildcard *.staging.grandkru.com (Universal SSL). Names like
+# staging.<site>.grandkru.com are a third label under grandkru.com and are not covered.
+EXPECTED_STAGING_HOST = "qg-frontend.staging.grandkru.com"
+
+
+def _deploy_job_env(workflow_path):
+    with open(workflow_path, encoding="utf-8") as f:
+        lines = f.read().splitlines()
+    in_deploy = False
+    env = {}
+    for line in lines:
+        if re.match(r"^  deploy:\s*$", line):
+            in_deploy = True
+            continue
+        if in_deploy and re.match(r"^  [a-zA-Z0-9_-]+:\s*$", line):
+            break
+        if in_deploy:
+            match = re.match(r"^\s+([A-Z_]+):\s*(.+)$", line)
+            if match:
+                env[match.group(1)] = match.group(2).strip()
+    if not in_deploy:
+        raise AssertionError("deploy job not found in CI workflow")
+    return env
+
 
 def _deploy_job_step_uses(workflow_path):
     with open(workflow_path, encoding="utf-8") as f:
@@ -39,6 +63,20 @@ class CiDeployWorkflowTest(unittest.TestCase):
             artifact_idx,
             "actions/checkout must run before actions/download-artifact so checkout "
             "does not delete the downloaded build directory",
+        )
+
+    def test_staging_host_under_staging_grandkru_zone(self):
+        env = _deploy_job_env(CI_WORKFLOW)
+        host = env.get("STAGING_HOST")
+        self.assertEqual(host, EXPECTED_STAGING_HOST)
+        self.assertTrue(
+            host.endswith(".staging.grandkru.com"),
+            "STAGING_HOST must be a single label under staging.grandkru.com for TLS",
+        )
+        self.assertNotIn(
+            "staging.qg-frontend.grandkru.com",
+            CI_WORKFLOW,
+            "legacy hostname breaks Universal SSL on grandkru.com",
         )
 
 

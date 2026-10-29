@@ -224,7 +224,7 @@ Mobile `/`:
 
 ## Untested areas
 
-- Deployed `staging.qg-frontend.grandkru.com` response headers, TLS, and Basic Auth behavior.
+- Deployed `qg-frontend.staging.grandkru.com` response headers, TLS, and Basic Auth behavior.
 - Cloudflare Pages production custom domains and redirect behavior beyond local `serve` + `_redirects` rule.
 - Authenticated flows (profile, messages, logout) beyond stub components.
 - Storybook 6 build and supply-chain (dev-only).
