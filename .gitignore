@@ -32,3 +32,7 @@ package-lock.json
 # IDE Directories
 .idea
 .vscode
+
+# Python
+__pycache__/
+*.pyc
