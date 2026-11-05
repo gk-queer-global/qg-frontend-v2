@@ -6,9 +6,13 @@
 # Env:
 #   BASIC_AUTH_USER / BASIC_AUTH_PASS  credentials for authorized requests (required)
 #   SMOKE_PATHS      space-separated paths (default "/ /about /blog /favicon.ico")
-#   SMOKE_MAX_WAIT_SEC       total retry budget after deploy propagation (default 180)
+#   SMOKE_MAX_WAIT_SEC       total retry budget for the whole run (default 180)
 #   SMOKE_INITIAL_DELAY_SEC  first retry sleep in seconds (default 2)
 set -euo pipefail
+
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+# shellcheck source=lib/smoke-http-retry.sh
+source "$SCRIPT_DIR/lib/smoke-http-retry.sh"
 
 usage() { echo "usage: $0 <base-url>" >&2; exit 64; }
 if [ $# -ne 1 ]; then usage; fi
@@ -18,6 +22,7 @@ BASE=${1%/}
 PATHS=${SMOKE_PATHS:-"/ /about /blog /favicon.ico"}
 SMOKE_MAX_WAIT_SEC=${SMOKE_MAX_WAIT_SEC:-180}
 SMOKE_INITIAL_DELAY_SEC=${SMOKE_INITIAL_DELAY_SEC:-2}
+smoke_retry_init "$SMOKE_MAX_WAIT_SEC" "$SMOKE_INITIAL_DELAY_SEC"
 
 log() { printf '%s\n' "$*" >&2; }
 
@@ -48,25 +53,15 @@ is_transient_status() {
   return 1
 }
 
-fetch_http_code() {
-  local url=$1 auth=$2
-  if [ -n "$auth" ]; then
-    curl -sS -o /dev/null -w '%{http_code}' -u "$auth" "$url" 2>/dev/null || printf '000'
-  else
-    curl -sS -o /dev/null -w '%{http_code}' "$url" 2>/dev/null || printf '000'
-  fi
-}
-
 check_status() {
   local url=$1 want=$2 auth=$3
   local unauth=0
   [ -z "$auth" ] && unauth=1
-  local started=$SECONDS
-  local delay=$SMOKE_INITIAL_DELAY_SEC
   local code
 
   while true; do
-    code=$(fetch_http_code "$url" "$auth")
+    smoke_retry_curl_fetch "$url" "$auth"
+    code=$SMOKE_FETCH_CODE
     if [ "$code" = "$want" ]; then
       log "ok HTTP $want $url"
       return 0
@@ -79,33 +74,24 @@ check_status() {
       log "::error::expected HTTP $want for $url (got $code)"
       return 1
     fi
-    if (( SECONDS - started >= SMOKE_MAX_WAIT_SEC )); then
+    if smoke_retry_deadline_exceeded; then
       log "::error::expected HTTP $want for $url (got $code, retries exhausted)"
       return 1
     fi
-    log "transient HTTP $code for $url (want $want), retrying in ${delay}s"
-    sleep "$delay"
-    if (( delay < 30 )); then
-      delay=$((delay * 2))
-    fi
+    log "transient HTTP $code for $url (want $want), retrying in ${SMOKE_RETRY_DELAY}s"
+    smoke_retry_sleep
   done
-}
-
-fetch_body_with_auth() {
-  local url=$1 auth=$2
-  curl -sS -u "$auth" "$url" 2>/dev/null || true
 }
 
 check_home_shell() {
   local url=$1 auth=$2
-  local started=$SECONDS
-  local delay=$SMOKE_INITIAL_DELAY_SEC
   local body code
 
   while true; do
-    code=$(fetch_http_code "$url" "$auth")
+    smoke_retry_curl_fetch "$url" "$auth"
+    code=$SMOKE_FETCH_CODE
+    body=$SMOKE_FETCH_BODY
     if [ "$code" = "200" ]; then
-      body=$(fetch_body_with_auth "$url" "$auth")
       if grep -q '<div id="root">' <<<"$body"; then
         log "ok authorized home page contains SPA root"
         return 0
@@ -117,15 +103,12 @@ check_home_shell() {
       log "::error::authorized GET $url expected 200 with SPA shell (got HTTP $code)"
       return 1
     fi
-    if (( SECONDS - started >= SMOKE_MAX_WAIT_SEC )); then
+    if smoke_retry_deadline_exceeded; then
       log "::error::authorized GET $url expected 200 with SPA shell (got HTTP $code, retries exhausted)"
       return 1
     fi
-    log "transient HTTP $code for $url (want 200 + SPA shell), retrying in ${delay}s"
-    sleep "$delay"
-    if (( delay < 30 )); then
-      delay=$((delay * 2))
-    fi
+    log "transient HTTP $code for $url (want 200 + SPA shell), retrying in ${SMOKE_RETRY_DELAY}s"
+    smoke_retry_sleep
   done
 }
 
