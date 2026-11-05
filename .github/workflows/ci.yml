@@ -53,7 +53,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install shellcheck-py==0.11.0.1
-      - run: shellcheck scripts/*.sh
+      - run: shellcheck scripts/*.sh scripts/lib/*.sh
       - run: python -m unittest discover -s scripts/tests -v
 
   deploy:
