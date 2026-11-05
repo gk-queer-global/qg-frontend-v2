@@ -66,13 +66,17 @@ smoke_retry_curl_fetch() {
   fi
 
   if [ "$curl_status" -ne 0 ]; then
+    # shellcheck disable=SC2034
     SMOKE_FETCH_CODE=000
+    # shellcheck disable=SC2034
     SMOKE_FETCH_BODY=
     rm -f "$tmp"
     return 0
   fi
 
+  # shellcheck disable=SC2034
   SMOKE_FETCH_CODE=$code
+  # shellcheck disable=SC2034
   SMOKE_FETCH_BODY=$(<"$tmp")
   rm -f "$tmp"
 }

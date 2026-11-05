@@ -11,7 +11,7 @@
 set -euo pipefail
 
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-# shellcheck source=lib/smoke-http-retry.sh
+# shellcheck disable=SC1091
 source "$SCRIPT_DIR/lib/smoke-http-retry.sh"
 
 usage() { echo "usage: $0 <base-url>" >&2; exit 64; }
